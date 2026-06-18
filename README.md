@@ -94,8 +94,9 @@ Prerequisites:
 
 # Technical details
 
-<details><sumarry>File layout</sumarry><br/>
-  <details><summary>General encrypted file</summary><br/>
+## File layout
+
+<details><summary>General encrypted file</summary><br/>
 
   Every file has 5 segments that can be split up like this:
   - Bytes 0-32: salt
@@ -104,8 +105,8 @@ Prerequisites:
   - Byte 64: content type -> 0=bytes 1=string 2=json
   - Bytes 65-: ciphertext
 
-  </details>
-  <details><summary>Password manager file</summary><br/>
+</details>
+<details><summary>Password manager file</summary><br/>
 
   A password data containing file is in essence just json. The python type actually used is a `dict[UUID, PWField]`.
   A UUID in this case is just a python builtin uuid.uuid4() like `e18d1093-fcdb-468b-9e5a-6b4a4b9aff22` for example.
@@ -113,8 +114,11 @@ Prerequisites:
   The uuids are internally used as UUID types, but get saved as string, in python parsing uuids like this is as simple as using `uuid.UUID(xyz)` while converting to string is done via `str(xyz)`.
   Times are format `%Y-%m-%d %H:%M:%S.%f` which should be normal iso format, ex: `2026-06-18 23:31:29.104373`, to parse the you can use `datetime.fromisoformat(xyz)`, string conversion is done via `str(xyz)`.
 
-  </details>
 </details>
+
+## en-/decryption
+
+testtext
 
 [1]: https://pycryptodome.readthedocs.io/en/latest/src/introduction.html
 [2]: https://doc.qt.io/qtforpython-6/index.html
