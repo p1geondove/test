@@ -42,21 +42,18 @@ Prerequisites:
   ```bash
   git clone https://github.com/p1geondove/password-manager`
   ```
-  ```
 - cd into repo:
   ```bash
   cd password-manager`
-  ```
   ```
 - create venv and add packages:
   ```bash
   uv sync
   ```
-  ```
 - run the software:
-```bash
+  ```bash
   uv run main.py`
-```
+  ```
 
 </details>
 
