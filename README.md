@@ -59,25 +59,25 @@ Prerequisites:
 
 
 # Technical details
-<details><sumarry>File layout</summary>
+<details><sumarry>File layout</summary><br/>
   <details><summary>General encrypted file</summary><br/>
-    
+
   Every file has 5 segments that can be split up like this:
   - Bytes 0-32: salt
   - Bytes 32-48: nonce
   - Bytes 48-64: mac tag
   - Byte 64: content type -> 0=bytes 1=string 2=json
   - Bytes 65-: ciphertext
-  
+
   </details>
   <details><summary>Password manager file</summary><br/>
-    
+
   A password data containing file is in essence just json. The python type actually used is a `dict[UUID, PWField]`.
   A UUID in this case is just a python builtin uuid.uuid4() like `e18d1093-fcdb-468b-9e5a-6b4a4b9aff22` for example.
   A PWField is a dataclass containting the uuid again as well as username, email, password, extra info, creation date and last edit date.
   The uuids are internally used as UUID types, but get saved as string, in python parsing uuids like this is as simple as using `uuid.UUID(xyz)` while converting to string is done via `str(xyz)`.
   Times are format `%Y-%m-%d %H:%M:%S.%f` which should be normal iso format, ex: `2026-06-18 23:31:29.104373`, to parse the you can use `datetime.fromisoformat(xyz)`, string conversion is done via `str(xyz)`.
-  
+
   </details>
 </details>
 
