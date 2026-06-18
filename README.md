@@ -26,11 +26,11 @@ Its very limited in its nature to keep the codebase as compact as possible in ca
    - uuid (internal putposes only)
 
 # Usage
-The simplest way is to just download the binaries. However downloading and running binaries is always risky, i encourage to clone/fork the repo and build from source:
+The simplest way is to just [download the binaries][6]. However downloading and running binaries is always risky, i encourage to clone/fork the repo and build from source:
 
 Prerequisites:
  - python (duh...)
- -[astral uv][4]
+ - [astral uv][4]
 
 <details><summary>Install and run</summary><br/>
 
@@ -59,7 +59,7 @@ Prerequisites:
 
 
 # Technical details
-<details><sumarry>File layout</summary><br/>
+<details><sumarry>File layout</sumarry><br/>
   <details><summary>General encrypted file</summary><br/>
 
   Every file has 5 segments that can be split up like this:
@@ -86,4 +86,5 @@ Prerequisites:
 [3]: https://www.textualize.io/
 [4]: https://docs.astral.sh/uv/getting-started/installation/
 [5]: https://superuser.com/questions/106360/how-to-enable-execution-of-powershell-scripts
+[6]: https://github.com/p1geondove/password-manager/releases
 
