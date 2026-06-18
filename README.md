@@ -60,32 +60,32 @@ Prerequisites:
 <details>
 <summary>Build binaries from source</summary>
 
-1. Clone repo:
+1. clone repo:
    ```bash
    git clone https://github.com/p1geondove/password-manager
    ```
-2. CD into repo:
+2. cd into repo:
    ```bash
    cd password-manager
    ```
-3. Create venv and add packages:
+3. create venv and add packages:
    ```bash
    uv sync
    ```
-4. Make binary:
+4. make binary:
    - **Linux**:
      ```bash
      ./build.sh
      ```
    - **Windows**:
-     1. [Read through this][5]
-     2. Open PowerShell as admin
-     3. Run:
+     1. [read through this][5]
+     2. open PowerShell as admin
+     3. run:
         ```powershell
         Set-ExecutionPolicy unrestricted
         ```
-     4. Return to the shell with the password-manager
-     5. Run:
+     4. return to the shell with the password-manager
+     5. run:
         ```powershell
         ./build.ps1
         ```
