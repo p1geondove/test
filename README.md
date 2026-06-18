@@ -40,11 +40,11 @@ Prerequisites:
 
 - clone repo:
   ```bash
-  git clone https://github.com/p1geondove/password-manager`
+  git clone https://github.com/p1geondove/password-manager
   ```
 - cd into repo:
   ```bash
-  cd password-manager`
+  cd password-manager
   ```
 - create venv and add packages:
   ```bash
@@ -52,7 +52,7 @@ Prerequisites:
   ```
 - run the software:
   ```bash
-  uv run main.py`
+  uv run main.py
   ```
 
 </details>
