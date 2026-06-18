@@ -8,11 +8,11 @@ TUI done with [textualize][3].
 > [!WARNING]
 > This is a personal project that intends to manage sensitive data. Just because its open source it doesn't mean its safe. Read trough the source code and build from source. I will provide binaries, these binaries will only ever be found in this repo.
 
-# Goal
+## Goal
 
 I was using Bitwarden for some time, but my anxiety came over me and i made my own password manager. Bitwarden might be open source, but its a lot of code to read trough. Even if you read trough all of it, whos to say that they dont run a backdoored fork?
 
-# Features
+## Features
 
 Its very limited in its nature to keep the codebase as compact as possible in case you want to fully read trough it. However it does have some nice features:
  - Cross Platform (linux, windows, mac)
@@ -28,7 +28,7 @@ Its very limited in its nature to keep the codebase as compact as possible in ca
    - last edit date
    - uuid (internal putposes only)
 
-# Usage
+## Usage
 
 The simplest way is to just [download the binaries][6]. However downloading and running binaries is always risky, i encourage to clone/fork the repo and build from source:
 
@@ -92,16 +92,16 @@ Prerequisites:
 </details>
 
 
-# Technical details
+## Technical details
 
-## File layout
+### File layout
 
 <details><summary>General encrypted file</summary><br/>
 
   Every file has 5 segments that can be split up like this:
   - Bytes 0-32: salt
   - Bytes 32-48: nonce
-  - Bytes 48-64: mac tag
+  - Bytes 48-64: mac tag for verification
   - Byte 64: content type -> 0=bytes 1=string 2=json
   - Bytes 65-: ciphertext
 
@@ -116,9 +116,12 @@ Prerequisites:
 
 </details>
 
-## en-/decryption
+### en-/decryption
 
-testtext
+The files get encrypted using AES, 256 bits. All of the crypto stuff is done via [pycryptodome][1].
+For that a key is derived from a password and a random 256 bit salt using PBKDF2 using 1 million iterations on SHA512. 1 million iterations of SHA512 somewhat time consuming, but thats a good thing since it makes brute force extremely time consuming. Ill test the speed of that on a very low power machine as well, but as long as the login takes less then a second i think its fine and doesnt break user experience. This is only really done once tho, since after that the key and salt are stored in ram. This has the benefit of instantly updating changes to the password file while also preventing malicious actors to steal your actual password. (Altho i guess if someone has full access to your machine they could also just install a keylogger)
+This program also creates a pepper that is locally saved, where exactly is dependant on the operating system. The pepper file itself is not encrypted and can technically be easily read and stolen by malicious actors. However it does add another layer of security to the whole project. **The pepper is important for accessing your password file, if you loose it you wont be able to recover your passwords or encrypted files**
+There are multiple abstraction layers in `crypt.py`, such as basic methods for en-/decryption, file interfacing and password-file interface.
 
 [1]: https://pycryptodome.readthedocs.io/en/latest/src/introduction.html
 [2]: https://doc.qt.io/qtforpython-6/index.html
