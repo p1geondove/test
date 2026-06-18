@@ -36,33 +36,38 @@ Prerequisites:
  - python (duh...)
  - [astral uv][4]
 
-<details><summary>Install and run</summary><br/>
+<details>
+<summary>Build binaries from source</summary>
 
-  - clone repo: `git clone https://github.com/p1geondove/password-manager`
-  - cd into repo: `cd password-manager`
-  - create venv and add packages: `uv sync`
-  - run the software: `uv run main.py`
-
-</details>
-
-<details><summary>Build binaries from source</summary><br/>
-<ol>
-  <li>clone repo: `git clone https://github.com/p1geondove/password-manager`</li>
-  <li>cd into repo: `cd password-manager`</li>
-  <li>create venv and add packages: `uv sync`</li>
-  <li>make binary:</li>
-  <ul>
-    <li>linux: `./build.sh`</li>
-    <li>windows:</li>
-    <ol>
-      <li>[read trough this][5]</li>
-      <li>open powershell as admin</li>
-      <li>`Saet-ExecutionPolicy unrestricted`</li>
-      <li>back to shell with the password-manager</li>
-      <li>`./build.ps1`</li>
-    </ol>
-  </ul>
-</ol>
+1. Clone repo:
+   ```bash
+   git clone https://github.com/p1geondove/password-manager
+   ```
+2. CD into repo:
+   ```bash
+   cd password-manager
+   ```
+3. Create venv and add packages:
+   ```bash
+   uv sync
+   ```
+4. Make binary:
+   - **Linux**:
+     ```bash
+     ./build.sh
+     ```
+   - **Windows**:
+     1. [Read through this][5]
+     2. Open PowerShell as admin
+     3. Run:
+        ```powershell
+        Set-ExecutionPolicy unrestricted
+        ```
+     4. Return to the shell with the password-manager
+     5. Run:
+        ```powershell
+        ./build.ps1
+        ```
 </details>
 
 
