@@ -36,6 +36,30 @@ Prerequisites:
  - python (duh...)
  - [astral uv][4]
 
+<details><summary>Just run without making binaries</summary><br/>
+
+- clone repo:
+  ```bash
+  git clone https://github.com/p1geondove/password-manager`
+  ```
+  ```
+- cd into repo:
+  ```bash
+  cd password-manager`
+  ```
+  ```
+- create venv and add packages:
+  ```bash
+  uv sync
+  ```
+  ```
+- run the software:
+```bash
+  uv run main.py`
+```
+
+</details>
+
 <details>
 <summary>Build binaries from source</summary>
 
