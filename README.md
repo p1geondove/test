@@ -36,7 +36,7 @@ Prerequisites:
  - python (duh...)
  - [astral uv][4]
 
-<details><summary>Just run without making binaries</summary><br/>
+<details><summary>Just run without making binaries</summary>
 
 - clone repo:
   ```bash
